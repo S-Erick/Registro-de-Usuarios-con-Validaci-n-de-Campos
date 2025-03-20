@@ -153,10 +153,17 @@ main{
     grid-area: main;
 }
 h1{
-    margin-bottom: 20%;
     font-size: var(--text-1);
     font-weight: 400;
     color: var(--text-color);
+}
+main > span{
+    margin: 6% 0;
+    color: var(--text-color-2);
+    font-size: var(--text-3);
+}
+main > span > a{
+    color: var(--main-color);
 }
 form{
     width: 100%;
