@@ -23,6 +23,7 @@
     --section-color: #2c2638;
     --inputs-color: #3c364c;
     --main-color: #6d54b5;
+    --link-color: #ae99eb;
     --text-color: #fff;
     --text-color-2: #818181;
 }
@@ -40,7 +41,7 @@
     color: var(--text-color-2);
 }
 .input-style:focus{
-    outline: 1px solid #8a79be;
+    outline: 1px solid var(--link-color);
 }
 button{
     font-weight: 500;
@@ -111,7 +112,7 @@ aside{
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-image: url(/img/10.jpg);
+    background-image: url(img/10.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -165,7 +166,7 @@ main > span{
     font-size: var(--text-3);
 }
 main > span > a{
-    color: var(--main-color);
+    color: var(--link-color);
 }
 form{
     width: 100%;
