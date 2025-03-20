@@ -101,7 +101,6 @@ aside{
     color: var(--text-color);
 }
 #github > span{
-    margin-top: .1rem;
     color: var(--text-color);
     font-size: var(--text-2);
 }
