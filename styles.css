@@ -39,6 +39,9 @@
 .input-style::placeholder{
     color: var(--text-color-2);
 }
+.input-style:focus{
+    outline: 1px solid #8a79be;
+}
 button{
     font-weight: 500;
     color: var(--text-color);
