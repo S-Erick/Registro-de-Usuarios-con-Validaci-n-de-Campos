@@ -17,7 +17,8 @@
     --text-4: 30px;
     --weight: 500;
 
-    --transition: all .6s ease;
+    --transition: all .3s ease;
+    --transition-2: all .9s ease;
 
     --background-color: #686279;
     --section-color: #2c2638;
@@ -26,7 +27,12 @@
     --link-color: #ae99eb;
     --text-color: #fff;
     --text-color-2: #818181;
-    --text-red: red;
+    --text-red: rgba(255, 60, 60, 0.703);
+    --green-check: #00ff88d4;
+    --hover-1: #ffffff21;
+    --hover-2: #6647c0;
+
+    --created-account-color: #1c1626;
 }
 .input-style{
     width: 100%;
@@ -50,8 +56,7 @@ button{
     transition: var(--transition);
 }
 button:hover{
-    background-color: #cccccc28;
-    cursor: pointer;
+    background-color: var(--hover-1);
 }
 /* ===================== general ===================== */
 
@@ -78,15 +83,42 @@ section{
 aside{
     width: 100%;
     height: 100%;
+    display: flex;
     grid-area: aside;
     border-radius: 10px;
     overflow: hidden;
     position: relative;
 }
+#created-account{
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--gap-2);
+    position: absolute;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    background-color: var(--created-account-color);
+}
+#created-account.show {
+    opacity: 1;
+    transform: scale(1);
+}
+#created-account > i{
+    font-size: 1500%;
+    color: var(--green-check);
+}
+#created-account > span{
+    color: var(--text-color);
+}
 #github{
     position: absolute;
-    top: 2%;
-    left: 82%;
+    top: 10px;
+    right: 10px;
     width: fit-content;
     padding: .3rem .8rem;
     display: flex;
@@ -186,15 +218,23 @@ form > div{
     display: flex;
     gap: var(--gap);
 }
-form > button{
-    color: var(--text-color) !important;
-    background-color: var(--main-color) !important;
+.submit-button{
+    color: var(--text-color);
+    background-color: var(--main-color);
+}
+.submit-button:hover{
+    background-color: var(--hover-2);
 }
 #password-validator-text{
     width: 100%;
     height: 2rem;
     font-size: var(--text-3);
     color: var(--text-red);
+}
+.bx-check-double{
+    font-size: 200%;
+    margin: auto 0;
+    color: var(--green-check);
 }
 .divider {
     display: flex;

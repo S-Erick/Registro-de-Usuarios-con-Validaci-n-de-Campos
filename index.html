@@ -4,11 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Registro de Usuarios con Validación de Campos</title>
 </head>
 <body>
     <section>
         <aside>
+            <div id="created-account">
+                <i class='bx bx-check-circle'></i>
+                <span>Successfully created account</span>
+            </div>
             <a href="https://github.com/S-Erick" target="_blank" id="github">
                 <i class='bx bxl-github'></i>
                 <span>GitHub</span>
@@ -40,7 +45,7 @@
                     <input class="input input-style" type="password" placeholder="Password Verification" name="password-check" id="password-check">
                 </label>
                 <span id="password-validator-text"></span>
-                <button class="input input-style" type="submit">Create account</button>
+                <button id="submit-button" class="submit-button input input-style" type="button">Create account</button>
             </form>
             <div class="divider">
                 <span>Or register with</span>

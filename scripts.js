@@ -33,30 +33,58 @@ function changeSlide() {
 setInterval(changeSlide, 8000);
 
 
+
+const form = document.querySelector('form')
+const submitButton = document.getElementById('submit-button')
+const passwordValidatorText = document.getElementById('password-validator-text')
+
+const inputPassword = document.getElementById('password')
+const inputPasswordcheck = document.getElementById('password-check')
+
 function checkPassword(text){
     return /[A-Z]/.test(text) && /[a-z]/.test(text) && /[0-9]/.test(text) && text.length >= 8
 }
 
-const form = document.querySelector('form')
-const passwordValidatorText = document.getElementById('password-validator-text')
+const fieldValidity = {
+    password: false,
+    passwordCheck: false,
+}
 
 form.addEventListener('input', (event) => {
-    const passwordInput = document.getElementById('password')
-    const passwordCheckInput = document.getElementById('password-check')
+    switch(event.target.id){
+        case 'password':
+            let isPasswordValid = checkPassword(event.target.value)
+            fieldValidity.password = isPasswordValid
 
-    if(event.target.id === 'password'){
-        let checker = checkPassword(event.target.value)
-        if(!checker){
-            passwordValidatorText.textContent = 'The password must contain at least: one uppercase letter, one numeric character, at least 8 characters'
-        }else{
-            passwordValidatorText.textContent = '✅'
-        }
+            if(!isPasswordValid){
+                passwordValidatorText.textContent = 'The password must contain at least: one uppercase letter, one numeric character, at least 8 characters'
+            }else{
+                passwordValidatorText.innerHTML = `<i class='bx bx-check-double'></i>`
+            }
+            break
+        case 'password-check':
+            fieldValidity.passwordCheck = event.target.value !== '' && inputPassword.value === event.target.value
+
+            if(inputPassword.value !== event.target.value){
+                passwordValidatorText.textContent = 'Passwords do not match!'
+            }else {
+                passwordValidatorText.innerHTML = `<i class='bx bx-check-double'></i>`;
+            }
+            break;
     }
-    if(event.target.id === 'password-check'){        
-        if (passwordInput.value !== passwordCheckInput.value) {
-            passwordValidatorText.textContent = 'Passwords do not match!'
-        } else {
-            passwordValidatorText.textContent = '✅'
-        }
+    fromValidation()
+})
+
+const createdAccount = document.getElementById('created-account')
+
+submitButton.addEventListener('click', () => {
+    if (Object.values(fieldValidity).every(value => value)) {
+        createdAccount.classList.add('show');
+        setTimeout(() => {createdAccount.classList.remove('show')}, 5000)
+    }
+    else{
+        passwordValidatorText.textContent = 'Fill in the fields correctly!'
     }
 })
+
+fromValidation()
